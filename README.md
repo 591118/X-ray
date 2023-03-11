@@ -3,6 +3,11 @@ Chest X-ray
 
 Prosjektet undersøker deep learning modeller for å utforske x-ray av overkroppen, for å finne avvik fra en frisk kropp. Skal deretter sette riktig diagnose på avvikene
 
+
+[Link to Kaggle dataset](https://www.kaggle.com/code/evenishell/xrays-chest/edit/run/121576740)
+
+
+
 Project Organization
 ------------
 
