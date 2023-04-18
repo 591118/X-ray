@@ -31,6 +31,7 @@ https://cloud.google.com/healthcare-api/docs/resources/public-datasets/nih-chest
 https://github.com/ieee8023/covid-chestxray-dataset
 https://data.mendeley.com/datasets/jctsfj2sfn/1
 
+
 ## Fremgangsmetode
 
 Prosjektet ble gjennomført av tre personer som samarbeidet for å utvikle en modell for å gjenkjenne brystsykdommer i røntgenbilder. Vi delte oss i tre forskjellige retninger for å utnytte våre ferdigheter og ressurser best mulig. En person var ansvarlig for å samle inn og forberede datasettet, en annen person var ansvarlig for å trene modellen og evaluere resultatene, mens den tredje personen var ansvarlig for å utvikle og implementere Gradio-appen.
