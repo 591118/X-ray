@@ -1,25 +1,12 @@
 Chest X-ray
 ==============================
 
-Prosjektet undersøker deep learning modeller for å utforske x-ray av overkroppen, for å finne avvik fra en frisk kropp. Skal deretter sette riktig diagnose på avvikene.
-
-Prosjektgruppen består av Håkon Mydland, Georg Taklo Kvalsund og Even Torbjørnsen. 
-
-Målet for prosjektet var å lage et system som kan finne en eller mer av 14 tilstander fra et eller flere x-ray bilder. Utforske og integrere teknikker for “Explainable AI.
-
-Prosjektet er en del av DAT255, og et ledd av vår bachelorgrad ved HVL innenfor dataingeniør/informatikk. 
-
-
-## Fjerne før innlevering
-Required: A link to a well-documented online Git repository containing all the code and documentation necessary to understand and reproduce your work, including code to create and run any applications you've made. You also must explain the larger context to which your work belongs, for example, in a readme file in your repository.
-
-
-
-
-
-
-
 ## Introduksjon
+
+Prosjektet undersøker deep learning modeller for å utforske x-ray av overkroppen, for å finne avvik fra en frisk kropp. Skal deretter sette riktig diagnose på avvikene.
+Prosjektgruppen består av Håkon Mydland, Georg Taklo Kvalsund og Even Torbjørnsen. 
+Målet for prosjektet var å lage et system som kan finne en eller mer av 14 tilstander fra et eller flere x-ray bilder. Utforske og integrere teknikker for “Explainable AI".
+Prosjektet er en del av DAT255, og et ledd av vår bachelorgrad ved HVL innenfor dataingeniør/informatikk. 
 
 Medisinsk bildeanalyse har lenge vært en essensiell komponent i moderne helsetjenester, og
 røntgenbilder utgjør en stor del av dette feltet. Radiologer er avhengige av å kunne tolke disse bildene nøyaktig og effektivt for å kunne stille korrekte diagnoser og sikre optimal behandling for pasientene. Imidlertid kan manuell gjennomgang av røntgenbilder være tidkrevende og utsatt for menneskelige feil. I den forbindelse har det vokst fram et behov for å utvikle mer avanserte og automatiserte verktøy som kan bistå radiologer i deres arbeid. Dette prosjektet har som mål å utvikle en deep-learning basert modell som kan identifisere 14 ulike diagnoser gitt en eller flere røntgenbilder.
@@ -46,22 +33,33 @@ https://data.mendeley.com/datasets/jctsfj2sfn/1
 
 ## Fremgangsmetode
 
-Prosjektet ble gjennomført at vi delte opp, og skulle bruke ulike metoder for å se etter hva som ga best resultat.
-SKRIVE KVELD
+Prosjektet ble gjennomført av tre personer som samarbeidet for å utvikle en modell for å gjenkjenne brystsykdommer i røntgenbilder. Vi delte oss i tre forskjellige retninger for å utnytte våre ferdigheter og ressurser best mulig. En person var ansvarlig for å samle inn og forberede datasettet, en annen person var ansvarlig for å trene modellen og evaluere resultatene, mens den tredje personen var ansvarlig for å utvikle og implementere Gradio-appen.
+
+For å samle inn og forberede datasettet, brukte vi NIH Chest X-Ray Dataset som er tilgjengelig på Google Cloud Healthcare API. Vi gjorde en grundig undersøkelse av datasettet og tok hensyn til forskjellige faktorer som alder, kjønn og sykdomstyper for å velge ut de mest relevante røntgenbildene. Vi utførte også en grundig datarengjøring og -forberedelse for å sikre at datasettet var egnet for maskinlæring.
+
+Den andre personen var ansvarlig for å trene modellen og evaluere resultatene. Vi brukte et konvolusjonelt nevralt nettverk (CNN) for å bygge modellen og trente den på datasettet. Vi brukte også ulike metrikker som nøyaktighet, F1-score og ROC-kurve for å evaluere modellens ytelse.
+
+Den tredje personen var ansvarlig for å utvikle og implementere Gradio-appen. Gradio er en rask og enkel måte å bygge og distribuere maskinlæringsapplikasjoner på. Appen lar brukerne laste opp et bilde og få en prediksjon av hvilken sykdom som er tilstede, eller om bildet er normalt.
+
+Selv om vi hadde et godt samarbeid og brukte våre ferdigheter og ressurser best mulig, møtte vi noen utfordringer underveis. To av retningene viste seg å ikke være helt vellykket, spesielt når det gjaldt nøyaktigheten til modellen. Vi måtte tilpasse og justere modellen flere ganger for å oppnå ønsket nøyaktighetsnivå. Det var også noen tekniske problemer med implementeringen av Gradio-appen, men disse ble løst ved å kontakte Gradio-support.
+
+Til tross for utfordringene, var det en lærerik opplevelse å jobbe med et reelt dataproblem og å utforske mulighetene og begrensningene ved bruk av maskinlæring i medisinsk diagnostikk. Vi lærte mye om datarengjøring og -forberedelse, modelltuning og evaluering, og utvikling av maskinlæringsapplikasjoner.
+
+
 
 ## Resultat
-Resultatet ble en gradio app.
+Denne rapporten presenterer resultatene av et prosjekt som brukte bryst røntgenbilder fra National Institutes of Health (NIH) Chest X-Ray Dataset. Datasettet inneholder mer enn 100 000 røntgenbilder og er tilgjengelig på Google Cloud Healthcare API. Prosjektet var ment å utforske muligheten for å bruke maskinlæringsteknikker til å lage en modell som kan automatisk gjenkjenne forskjellige brystsykdommer i røntgenbilder.
 
-Når bildene lastes opp, og går gjennom modellen ser vi at emphysema blir gjettet på nesten alle bildene, som gjør at predeksjonen av emphysema blir feil, siden modellen "helgraderer" seg med å gjette på så mange bilder. Dermed kan en utenforstående ikke bruke modellen, men trenger en fagperson til å se om predeksjon er riktig. 
+Etter å ha trent modellen på datasettet og evaluert den ved hjelp av flere metrikker, ble resultatet implementert som en Gradio-app. Gradio-appen lar brukere laste opp et bryst røntgenbilde og få en prediksjon av hvilken sykdom som er tilstede, eller om bildet er normalt. Dessverre viste evalueringen av modellen at den hadde en høy feilrate, spesielt når den skulle skille mellom lungebetennelse og normalt bilde. Dette viser at det er utfordrende å bygge en nøyaktig modell for brystsykdommer på grunn av kompleksiteten i bildene og variasjonen i sykdommene. Det er behov for videre forskning og utvikling for å forbedre nøyaktigheten til modellen.
+
+
 
 ## Forbedringspotensiale og utbytte av prosjektet
+Selv om modellen ikke oppnådde ønsket nøyaktighetsnivå, viser dette prosjektet et stort potensial for anvendelse av maskinlæring i diagnostisering av brystsykdommer. Med tilgang til store og varierte datasett som NIH Chest X-Ray Dataset, kan maskinlæring bidra til å forbedre kvaliteten på diagnose og behandling av pasienter. Videre kan utvikling av mer avanserte modeller og anvendelse av ny teknologi som dyp læring, øke nøyaktigheten og presisjonen til modellene.
 
+Prosjektet kan også bidra til å øke bevisstheten om brystsykdommer og viktigheten av tidlig diagnose. Ved å utvikle en modell som kan gi en rask og nøyaktig diagnose, kan pasienter få raskere tilgang til behandling og bedre prognoser. I tillegg kan dette prosjektet åpne for videre samarbeid mellom medisinske og teknologiske fagområder for å løse komplekse helseproblemer.
 
-
-## Modeller
-[Kaggle -> modell med normal / pneumonia](https://www.kaggle.com/code/evenishell/xrays-chest/edit/run/121576740)
-
-
+Sammenfattende viser dette prosjektet både utfordringer og muligheter for bruk av maskinlæring i diagnostisering av brystsykdommer. Selv om nøyaktigheten til modellen i denne studien ikke var optimal, kan videre forskning og utvikling bidra til å forbedre nøyaktigheten og presisjonen til modellene. Videre samarbeid mellom medisinske og teknologiske fagområder kan også bidra til å utvikle innovative løsninger for å forbedre diagnostiseringen og behandlingen av brystsykdommer.
 
 
 Project Organization
